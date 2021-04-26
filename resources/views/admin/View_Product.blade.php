@@ -8,8 +8,8 @@
 
 <div id="content">
   <div id="content-header">
-    <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#" class="current">View Product Record</a> </div>
-    <h1>View Product Record</h1>
+    <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#" class="current">View Book Record</a> </div>
+    <h1>View Book Record</h1>
   </div>
   <div class="container-fluid">
     <hr>
@@ -60,13 +60,13 @@
                 <thead>
                   <tr>
                   <th><input type="checkbox" id="select_all" name="title-checkbox" /> <input type="submit" name="submit" value="DELETE" style="width:10px;" /></th>
-                  <th>Category_name</th>
-                  <th>SubCategory_name</th>
-                  <th>Product_name</th>
-                  <th>Product_Desc</th>
-                  <th>Product_Image</th>
-                  <th>Product_Images</th>
-                  <th>Product_status</th>
+                  <th>Book_Category_name</th>
+                  <th>Book_SubCategory_name</th>
+                  <th>Book_name</th>
+                  <th>Book_Desc</th>
+                  <th>Book_Image</th>
+                  <!-- <th>Book_Images</th> -->
+                  <th>Book_status</th>
                   <th>Created_at</th>
                   <th>Update_at</th>
                   <th>Action</th>
@@ -81,9 +81,9 @@
                   <td>{{ $val->product_name }}</td>
                   <td>{{ $val->product_desc }}</td>
                   <td><img src="admin/images/{{ $val->product_image}}" alt="Admin" width="100" height="100"></td>
-                  <td>@foreach( explode(',',$val->product_mimage) as $mi)
+                  <!-- <td>@foreach( explode(',',$val->product_mimage) as $mi)
                   <img src="admin/mimages/{{ $mi }}" alt="Admin" width="50" height="50">
-                  @endforeach</td>
+                  @endforeach</td> -->
                   <td style="width:120px">
                     @if($val->product_status == 0)
                        <a href='javascript:active_productcategory({{$val->product_id}})' class='btn btn-danger' style="width:70px">Deactive</a>
@@ -148,7 +148,9 @@ $.ajaxSetup({
         {
           if(response == 1)
           {
-            window.location = "/View_Product";
+            // window.location = "/View_Product";
+            window.history.back();
+            location.reload();
           }
         }
       });
@@ -175,7 +177,9 @@ $.ajaxSetup({
         {
           if(response == 1)
           {
-            window.location = "/View_Product";
+            // window.location = "/View_Product";
+            window.history.back();
+            location.reload();
           }
         }
       });

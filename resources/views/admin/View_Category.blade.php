@@ -129,7 +129,9 @@ $.ajaxSetup({
         {
             if(response == 1)
             {
-              window.location = "/View_Category";
+              // window.location = "/View_Category";
+              window.history.back();
+              location.reload();
             }
         }
       });
@@ -151,7 +153,9 @@ $.ajaxSetup({
         {
             if(response == 1)
             {
-              window.location = "/View_Category";
+              // window.location = "/View_Category";
+              window.history.back();
+              location.reload();
             }
         }
       });

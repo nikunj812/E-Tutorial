@@ -132,7 +132,9 @@ $.ajaxSetup({
         {
             if(response == 1)
             {
-              window.location = "/View_Subcategory";
+              // window.location = "/View_Subcategory";
+              window.history.back();
+                    location.reload();
             }
         }
       });
@@ -154,7 +156,9 @@ $.ajaxSetup({
         {
             if(response == 1)
             {
-              window.location = "/View_Subcategory";
+              // window.location = "/View_Subcategory";
+              window.history.back();
+              location.reload();
             }
         }
       });

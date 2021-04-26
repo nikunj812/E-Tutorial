@@ -135,26 +135,26 @@ class ProductController extends Controller
     	//	dd($req->toarray());
 
     	//Image 
-    	if($req->file('image'))
-		{
-			//dd($req->file('image'));
-			$file = $req->file('image');
-			$image_name = rand(10000,99999).".".$file->getClientOriginalExtension();
-		    $file->move(public_path('admin/images'),$image_name);
+        	if($req->file('image'))
+    		{
+    			//dd($req->file('image'));
+    			$file = $req->file('image');
+    			$image_name = rand(10000,99999).".".$file->getClientOriginalExtension();
+    		    $file->move(public_path('admin/images'),$image_name);
 
-		    //delete image in folder
-			  $id = $req->get('product_id');
-			  $ProductData = Product::where('product_id',$id)->first();
+    		    //delete image in folder
+    			  $id = $req->get('product_id');
+    			  $ProductData = Product::where('product_id',$id)->first();
 
-		   	  $path = public_path()."/admin/images/$ProductData->product_image";
-		   	  $result = File::exists($path);
-	        
-		    	if($result)
-		    	{
-		   	  	    File::delete($path);
-		    	}
-		}
-		else
+    		   	  $path = public_path()."/admin/images/$ProductData->product_image";
+    		   	  $result = File::exists($path);
+    	        
+    		    	if($result)
+    		    	{
+    		   	  	    File::delete($path);
+    		    	}
+    		}
+    		else
 		{
 			$id = $req->get('product_id');
 			$productR =  Product::where('product_id',$id)->first();

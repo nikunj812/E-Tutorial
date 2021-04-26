@@ -12,6 +12,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Mail;
+use Hash;
 
 class UserController extends Controller
 {
@@ -57,6 +58,7 @@ class UserController extends Controller
 
    public function insertuser(Request $req)
    {
+      
       $users = User::where('email', $req->email)->get();
 
       # check if email is more than 1
